@@ -10,8 +10,9 @@ function checkSpecsMatch(poolconfigdata, elementJSONData) {
       poolconfigdata.parameters[0].stakebonuspercent,
       elementJSONData.stakebonus
     );
-  console.log(infoMatches);
+  return infoMatches;
 }
+
 function checkPoolFeeMatch(exfee, realfee) {
   return CheckMatchUtil(exfee, realfee, "Fee");
 }
@@ -24,10 +25,10 @@ function checkStakeBonusMatch(exstakebonus, realbonus) {
 
 function CheckMatchUtil(exval, realval, DescCheck) {
   if (exval == realval) {
-    console.log(`${DescCheck} ✅`);
+    console.log(`${DescCheck}`.green);
     return true;
   }
-  console.log(`${DescCheck} ❌`);
+  console.log(`${DescCheck} ${exval} != ${realval}`.red);
   return false;
 }
 

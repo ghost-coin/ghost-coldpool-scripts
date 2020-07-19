@@ -1,0 +1,66 @@
+[
+  {
+    "label": "Coldstake.io Ghost Pool",
+    "description": "Coldstaking pool for Ghost",
+    "website": "https://ghost.coldstake.io/",
+    "fee": "5",
+    "stakebonus": "3",
+    "public_key": "gcs12ezltnndc6f6ds4zcwdy82d6mv94xx2anch950"
+  },
+  {
+    "label": "Ghoststake.com Ghost Pool",
+    "description": "Coldstaking pool for Ghost",
+    "website": "https://ghoststake.com/",
+    "fee": "0",
+    "stakebonus": "0",
+    "public_key": "gcs1cxgy3uzz05djx5j0g40trxkweq7jwllkzzpkf5"
+  },
+  {
+    "label": "D4RK Ghost Pool",
+    "description": "Coldstaking pool for Ghost - D4RK Community",
+    "website": "https://ghost-pool.darkpay.market/",
+    "fee": "3.5",
+    "stakebonus": "1",
+    "public_key": "gcs1wmr49e2fd8p09dll8djdfsek6m5zuxhjdq3c4c"
+  },
+  {
+    "label": "Novastera EU Ghost Pool",
+    "description": "Novastera pool, objective is to have pools on different continent",
+    "website": "https://ghost.novastera.eu/",
+    "fee": "2",
+    "stakebonus": "0.5",
+    "public_key": "gcs1gujv3jjfec75pqkezjckskxw9cfvvdmjkw5g6x"
+  },
+  {
+    "label": "MyGhost.org Coldstake Pool",
+    "description": "Datacenter hosted community staking pool",
+    "website": "https://myghost.org/",
+    "fee": "3",
+    "stakebonus": "1",
+    "public_key": "gcs179wukwy95kewa6pex7f47w3xuzn3nywqdng394"
+  },
+  {
+    "label": "Ghost.Cheap Coldstake Pool",
+    "description": "The cheapest Ghost Staking Pool",
+    "website": "https://ghost.cheap/",
+    "fee": "0",
+    "stakebonus": "0",
+    "public_key": "gcs1ekjm66egt02emteu75gyheg2jeytw3tdsnaysk"
+  },
+  {
+    "label": "Ghost-Pool.net Ghost Cold Staking Pool",
+    "description": "Reliable, Low-Fee Ghost Cold Staking Pool",
+    "website": "https://ghost-pool.net/",
+    "fee": "2.5",
+    "stakebonus": "1",
+    "public_key": "gcs154p3rm80dg3arc5jak3293mkgk45uhfggej3da"
+  },
+  {
+    "label": "Mega.Myghost.org",
+    "description": "Alternative ghost community coldstaking pool",
+    "website": "https://mega.myghost.org/",
+    "fee": "2.5",
+    "stakebonus": "0.5",
+    "public_key": "gcs1wzjvh9cmdf5h9atk785tvmu68729534rzu34p6"
+  }
+]

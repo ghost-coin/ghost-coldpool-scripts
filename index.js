@@ -2,8 +2,10 @@ const axios = require("axios");
 const checkData = true;
 const Showstats = false;
 const CheckHelper = require("./helpers/checkmatch");
-const Constants = require("./constants");
+const Formatter = require("./helpers/formatter");
 
+const Constants = require("./helpers/constants");
+var colors = require("colors");
 var totalDelegated = 0,
   totalBlocks = 0;
 process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = "0";
@@ -19,19 +21,22 @@ async function getPoolStats() {
 }
 
 async function getJSONStats(data) {
+  //To track number of runs the forEach does
   index = 0;
   data.forEach(async (element) => {
     try {
       const resPoolJSON = await axios.get(
-        element.website + Constants.POOL_API_JSONPATH
+        Constants.getAPIJsonURL(element.website)
       );
       ++index;
       if (Showstats) processPoolData(index, element, resPoolJSON, data);
       if (checkData) {
         const resPoolConfig = await axios.get(
-          element.website + Constants.POOL_API_CONFIGPATH
+          Constants.getAPIConfigURL(element.website)
         );
-        CheckHelper.checkSpecsMatch(resPoolConfig.data, element);
+        if (!CheckHelper.checkSpecsMatch(resPoolConfig.data, element)) {
+          console.error(`${element.website} has mismatching info`.red);
+        }
       }
     } catch (errorres) {
       console.error(errorres);
@@ -40,22 +45,26 @@ async function getJSONStats(data) {
 }
 
 function processPoolData(index, element, resPoolJSON, arr) {
+  const delegatedamt = resPoolJSON.data.watchonlytotalbalance;
+  const coldstakedblocks = resPoolJSON.data.blocksfound;
   console.log(
-    `${element.website} has ${resPoolJSON.data.watchonlytotalbalance.toFixed(
-      2
-    )} GHOST Delegated`
+    `${colors.blue(element.website).underline} has ${colors.brightBlue(
+      Formatter.formatAmtWithTicker(delegatedamt)
+    )} ${colors.brightBlue("Delegated")}`
   );
-  totalDelegated += resPoolJSON.data.watchonlytotalbalance;
-  totalBlocks += resPoolJSON.data.blocksfound;
-  logTotal(index, arr);
+  totalDelegated += delegatedamt;
+  totalBlocks += coldstakedblocks;
+  //Log total stats if we are at the last pool
+  if (index === arr.length) {
+    logTotal();
+  }
 }
 
-function logTotal(index, arr) {
-  //Check if we are at the last pool index
-  if (index === arr.length) {
-    console.log(`Total Blocks coldstaked : ${totalBlocks}`);
-    console.log(`Total Coins Delegated : ${totalDelegated}`);
-  }
+function logTotal() {
+  console.log(`Total Blocks Cold-Staked : ${totalBlocks}`.brightBlue);
+  console.log(
+    `Total Delegated : ${Formatter.formatAmtWithTicker(totalDelegated)}`.green
+  );
 }
 
 getPoolStats();
