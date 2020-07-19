@@ -4,7 +4,7 @@ function checkSpecsMatch (poolconfigdata, elementJSONData) {
     checkPoolFeeMatch(elementJSONData.fee,
       poolconfigdata.parameters[0].poolfeepercent
     ) &&
-    checkPubkeyMatch(elementJSONData.public_key,poolconfigdata.pooladdress) &&
+    checkPubkeyMatch(elementJSONData.public_key, poolconfigdata.pooladdress) &&
     checkStakeBonusMatch(elementJSONData.stakebonus,
       poolconfigdata.parameters[0].stakebonuspercent
     )

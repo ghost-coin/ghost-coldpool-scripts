@@ -1,6 +1,6 @@
 const axios = require('axios')
-const checkData = true
-const Showstats = false
+const checkData = false
+const Showstats = true
 const CheckHelper = require('./helpers/checkmatch')
 const Formatter = require('./helpers/formatter')
 
