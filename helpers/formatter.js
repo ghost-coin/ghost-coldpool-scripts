@@ -1,7 +1,7 @@
-const TICKER = "GHOST";
+const TICKER = 'GHOST'
 
-function formatAmtWithTicker(amt) {
-  return `${amt.toLocaleString()} ${TICKER}`;
+function formatAmtWithTicker (amt) {
+  return `${amt.toLocaleString()} ${TICKER}`
 }
 
-module.exports = { formatAmtWithTicker };
+module.exports = { formatAmtWithTicker }
